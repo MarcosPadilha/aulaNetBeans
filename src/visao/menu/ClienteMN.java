@@ -31,6 +31,7 @@ public class ClienteMN {
             System.out.println("6- para deletar um cliente");
             System.out.println("7- para atualizar um cliente");
             System.out.println("0- para voltar");
+           
             System.out.println("informe uma ação: ");
             opcao = Teclado.lerInt();
             
