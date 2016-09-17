@@ -28,8 +28,8 @@ public class ClienteMN {
             System.out.println("3- para consultar por renda mínima");
             System.out.println("4- para consultar por renda máxima");         
             System.out.println("5- para listar os cilentes");
-            System.out.println("6- para deletar um cliente");
-            System.out.println("7- para atualizar um cliente");
+            System.out.println("6- para alterar um cliente");
+            System.out.println("7- para deletar um cliente");
             System.out.println("0- para voltar");
            
             System.out.println("informe uma ação: ");
@@ -52,7 +52,7 @@ public class ClienteMN {
             do{
                 opcao = showMenu();
                     switch(opcao){
-                        case 1:
+                        case 1://novo cliente
                        
                             if(ClienteCL.newCliente()){
                                 System.out.println("cliente salo com sucesso");
@@ -62,21 +62,21 @@ public class ClienteMN {
                                  System.out.println("pressione enter para continuar");
                                  saida = Teclado.lerString();
                         break;
-                        case 2:
+                        case 2: //consultar 
                             System.out.println("Código de cliente para sua busca: ");
                             codigo = Teclado.lerInt();                            
                             ClienteCL.findClienteCodigo(codigo);
                             System.out.println("pressione enter para continuar ");
                             saida = Teclado.lerString();
                             break;
-                        case 3:
+                        case 3: //renda minima
                             System.out.println("renda: ");// no mínimo o valor informado
                             renda = Teclado.lerDouble();
                             ClienteCL.findClienteRenda(renda, 2);
                             System.out.println("Pressione enter para continuar");
                             saida = Teclado.lerString();
                             break;
-                        case 4:
+                        case 4: //renda maxima
                             System.out.println("renda: ");// no máximo o valor informado
                             renda = Teclado.lerDouble();
                             ClienteCL.findClienteRenda(renda, 1);
@@ -84,22 +84,31 @@ public class ClienteMN {
                             saida = Teclado.lerString();
                             break;
                            
-                        case 5:
+                        case 5://listar todos
                             ClienteCL.showClientes();
                             System.out.println("pressione enter para continuar");
                             saida = Teclado.lerString();
                          break;
-                        case 6:
-                            System.out.println("digite um código para deletar");
-                            opcao = Teclado.lerInt();
-                            ClienteCL.deleteCliente(opcao);
-                            System.out.println("Digite enter para continuar");
-                            saida = Teclado.lerString();
+                        case 7: //deletar
+                            
+                            System.out.println("digite um código para busca");
+                            codigo = Teclado.lerInt();
+                            if( ClienteCL.deleteCliente(codigo)){
+                                System.out.println("Cliente excluído com sucesso");
+                            }else{
+                                System.out.println("problemas ao excluir");
+                            }
+                               System.out.println("pressione enter para continuar");
+                              saida =Teclado.lerString();
                             break;
-                        case 7:
-                            System.out.println("digite o código do cliente para ser atualizado");
-                            opcao = Teclado.lerInt();
-                            ClienteCL.updateCliente();
+                        case 6: // atualizar
+                            if(ClienteCL.updateCliente()){
+                                System.out.println("Cliente alterado");
+                            }else{
+                                System.out.println("Problemas ao alterar");
+                            }
+                            System.out.println("Pressione enter ao alterar");
+                            saida = Teclado.lerString();
                             break;
                             
                     }

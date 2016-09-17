@@ -25,7 +25,8 @@ public class FornecedorMN {
         System.out.println("digite 1 para cadastrar fornecedor  ");
         System.out.println("digite 2 para listar os fornecedores "); 
         System.out.println("digite 3 para buscar fornecedor por código");
-        System.out.println("dogite 4 para deletar Fornecedor");
+        System.out.println("digite 4 para atualizar fornecedor");
+        System.out.println("dogite 5 para deletar Fornecedor");
         System.out.println("digite 0 para voltar");
         System.out.println("informe uma ação :");
             opcao = Teclado.lerInt();
@@ -68,9 +69,23 @@ public class FornecedorMN {
                 saida = Teclado.lerString();
                 break;
             case 4:
-                System.out.println("dogote o codigo do fornecedor que deseja deletar");
-                opcao = Teclado.lerInt();
-                FornecedorCL.deleteFornecedor(opcao);
+                if(FornecedorCL.updateFornecedor()){
+                    System.out.println("Cliente atualizado com sucesso");
+                }else{
+                    System.out.println("Problemas ao atualizar");
+                }
+                     System.out.println("pressione enter para conrinuar");
+                     saida = Teclado.lerString();
+                 break;
+            case 5:
+                System.out.println("dogite o codigo do fornecedor que deseja deletar");
+                codigo = Teclado.lerInt();
+                if(  FornecedorCL.deleteFornecedor(opcao)){
+                    System.out.println("Fornecedor deletado com sucesso");
+                }else{
+                    System.out.println("problemas ao excluir");
+                }
+              
                  System.out.println("pressione enter para conrinuar");
                 saida = Teclado.lerString();
                 break;

@@ -72,12 +72,13 @@ public class ClienteCL {
     */
       public static void findClienteRenda( double renda, int opcao){
           ArrayList<ClienteBO> resposta = new ArrayList();
-          resposta = ClienteBD.findClienteRenda(renda, opcao);
+            resposta = ClienteBD.findClienteRenda(renda, opcao);
             if(resposta!=null){
                 ClienteIO.printList(resposta);
             }else{
                 System.out.println("Não encontrado");
             }
       }
+      
       
 }

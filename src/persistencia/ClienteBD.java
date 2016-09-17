@@ -28,6 +28,35 @@ public class ClienteBD {
         return true;
 
     }
+       /**
+    * método que chama o método desta classe chamado
+    * posCodigoCliente que verifica a posição do cliente no array
+    * se existir ele deleta, se não, ele retorna false.
+    * @param codigo
+    * @return 
+    */
+    public static boolean delete(int codigo){
+    int linha = posClienteCodigo(codigo);
+        if(linha!= -1){
+            base.remove(linha);
+           return true; 
+        }else{
+            return false;
+        }
+       
+    }
+    
+    public static boolean update(ClienteBO dado){
+    int linha = posClienteCodigo(dado.getCodigo());
+        if(linha!= -1){
+            base.set(linha, dado);
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
+    
  /**
   * método que retorna o array criado logo acima.
   * @return base com todos clientes.
@@ -102,33 +131,5 @@ public class ClienteBD {
        
       
     }
-   /**
-    * método que chama o método desta classe chamado
-    * posCodigoCliente que verifica a posição do cliente no array
-    * se existir ele deleta, se não, ele retorna false.
-    * @param codigo
-    * @return 
-    */
-    public static boolean delete(int codigo){
-    int linha = posClienteCodigo(codigo);
-        if(linha!= -1){
-            base.remove(linha);
-           return true; 
-        }else{
-            return false;
-        }
-       
-    }
-    
-    public static boolean update(ClienteBO dado){
-    int linha = posClienteCodigo(dado.getCodigo());
-        if(linha!= -1){
-            base.set(linha, dado);
-            return true;
-        }else{
-            return false;
-        }
-        
-    }
-    
+
 }
