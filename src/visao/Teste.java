@@ -18,6 +18,7 @@ import persistencia.ClienteBD;
 import persistencia.FornecedorBD;
 import visao.menu.ClienteMN;
 import visao.menu.FornecedorMN;
+import visao.menu.ProdutoMN;
 
 
 /**
@@ -27,9 +28,9 @@ import visao.menu.FornecedorMN;
 public class Teste {
     public static void main(String[] args) {
 
-  ClienteMN.execute();
+  ProdutoMN.execute();
           
-                
+       // FornecedorMN.execute();
         
     
     

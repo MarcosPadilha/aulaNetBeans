@@ -11,7 +11,7 @@ import persistencia.ClienteBD;
 import visao.ClienteIO;
 
 /**
- *Classe que liga os escopos visão com persistencia
+ *Classe que liga os escopos visão com persistência
  * @author faculdade.ads
  */
 public class ClienteCL {

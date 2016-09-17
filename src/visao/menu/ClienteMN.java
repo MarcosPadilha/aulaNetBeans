@@ -55,7 +55,7 @@ public class ClienteMN {
                         case 1://novo cliente
                        
                             if(ClienteCL.newCliente()){
-                                System.out.println("cliente salo com sucesso");
+                                System.out.println("cliente salvo com sucesso");
                             }else{
                                 System.out.println("nao foi possivel salvar o cliente");
                             }

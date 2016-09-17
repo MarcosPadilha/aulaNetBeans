@@ -22,6 +22,9 @@ public class ProdutoCL {
     return ProdutoBD.save(p);
     
     }
+    public static void showProdutos(){
+        ProdutoIO.printList(ProdutoBD.getAll());
+    }
     
      public static boolean deleteProduto(int codigo){
     return ProdutoBD.delete(codigo);

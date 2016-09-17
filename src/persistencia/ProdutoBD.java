@@ -19,6 +19,9 @@ public class ProdutoBD {
     base.add(item);
     return true;
     }
+    public static ArrayList<ProdutoBO> getAll(){
+        return base;
+    }
     
       public static int posProdutoCodigo(int codigo){
         int linha = 0;
