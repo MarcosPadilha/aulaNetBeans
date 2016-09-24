@@ -5,9 +5,11 @@
  */
 package controle;
 
+import negocio.CompraBO;
 import negocio.FornecedorBO;
 import persistencia.FornecedorBD;
 import visao.FornecedorIO;
+import visao.Teclado;
 
 /**Classe que liga as camadas de persistencia, de visão e de negocios dos fornecedores.
  *
@@ -56,6 +58,30 @@ public class FornecedorCL {
     FornecedorBO b = FornecedorIO.getInstance();
         return FornecedorBD.update(b);
     
+    }
+    
+    public static FornecedorBO chooseFornecedor(){
+        int codigo;
+        String resposta = null;
+        FornecedorBO f;
+            do{
+                System.out.println("Digite o código do fornecedor:");
+                codigo = Teclado.lerInt();
+                f = FornecedorBD.findFornecedorCodigo(codigo);
+                if(f!=null){
+                    System.out.println(f.getNomeFantasia());
+                    System.out.println("deseja continuar?");
+                    resposta = Teclado.lerString();
+                    
+                }else{
+                    System.out.println("Não encontrado");
+                    resposta = "n";
+                
+                }
+            }while(!(resposta.equalsIgnoreCase("s")));
+
+         return f;
+         
     }
     
 }

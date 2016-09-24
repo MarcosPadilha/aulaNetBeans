@@ -28,10 +28,9 @@ import visao.menu.ProdutoMN;
 public class Teste {
     public static void main(String[] args) {
 
-  ProdutoMN.execute();
-          
-       // FornecedorMN.execute();
-        
+ // ProdutoMN.execute();
+ CompraIO.getInstance();
+   
     
     
     }

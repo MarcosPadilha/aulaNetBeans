@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import negocio.ClienteBO;
 import persistencia.ClienteBD;
 import visao.ClienteIO;
+import visao.Teclado;
 
 /**
  *Classe que liga os escopos visão com persistência
@@ -79,6 +80,32 @@ public class ClienteCL {
                 System.out.println("Não encontrado");
             }
       }
+      public static ClienteBO chooseCliente(){
+          String resposta = null;
+           ClienteBO c;
+           int codigo;         
+          do{
+                System.out.println("Digite o código do cliente que deseja buscar");
+                codigo = Teclado.lerInt();
+               c = ClienteBD.findClienteCodigo(codigo);
+             if(c != null){
+                 System.out.println(c.getNome());
+                  System.out.println("deseja prosseguir? s/n");
+                  resposta = Teclado.lerString();
+                  
+             }else{
+                 System.out.println("Cliente não localizado");
+                 resposta = "n";
+             }
+                 
+              } while(!(resposta.equals("s")));
+             
+             return c;
+          }
+          
+          
+          
+      }
       
       
-}
+

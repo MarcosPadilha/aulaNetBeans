@@ -45,14 +45,18 @@ public class ProdutoCL {
         }
         
     }
-       public static void findProdutoValorCompra( double renda, int opcao){
+       public static void findProdutoValorCompra( double valor, int opcao){
           ArrayList<ProdutoBO> resposta = new ArrayList();
-            resposta = ProdutoBD.findProdutoValorCompra(renda, opcao);
+            resposta = ProdutoBD.findProdutoValorCompra(valor, opcao);
             if(resposta!=null){
                 ProdutoIO.printList(resposta);
             }else{
                 System.out.println("Não encontrado");
             }
       }
+       
+       public static void findProdutoEstoqueBaixo(){
+       
+       }
      
 }

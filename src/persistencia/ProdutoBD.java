@@ -94,6 +94,12 @@ public class ProdutoBD {
        
       
     }
+       public static ArrayList <ProdutoBO> findProdutoEstoqueBaixo(){
+       ArrayList <ProdutoBO> lista = new ArrayList();
+       
+       
+       return lista;
+       }
       
     
     
