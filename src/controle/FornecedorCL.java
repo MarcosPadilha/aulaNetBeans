@@ -50,7 +50,11 @@ public class FornecedorCL {
         
         
     }
-    
+    /**
+     * deleta fornecedor
+     * @param codigo
+     * @return 
+     */
     public static boolean deleteFornecedor(int codigo){
     return FornecedorBD.delete(codigo);
     }
@@ -59,7 +63,10 @@ public class FornecedorCL {
         return FornecedorBD.update(b);
     
     }
-    
+    /**
+     * escolhe o fornecedor pelo código para realizar uma compra.
+     * @return 
+     */
     public static FornecedorBO chooseFornecedor(){
         int codigo;
         String resposta = null;

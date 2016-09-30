@@ -80,6 +80,10 @@ public class ClienteCL {
                 System.out.println("Não encontrado");
             }
       }
+      /**
+       * busca cliente pelo código.
+       * @return 
+       */
       public static ClienteBO chooseCliente(){
           String resposta = null;
            ClienteBO c;

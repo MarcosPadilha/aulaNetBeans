@@ -10,6 +10,7 @@ import negocio.ProdutoBO;
 import persistencia.ProdutoBD;
 import visao.ClienteIO;
 import visao.ProdutoIO;
+import visao.Teclado;
 
 /**
  *
@@ -57,6 +58,37 @@ public class ProdutoCL {
        
        public static void findProdutoEstoqueBaixo(){
        
+       }
+       
+       public static ProdutoBO chooseProduto(){
+       String resposta = null;
+           ProdutoBO p;
+           int codigo = 0;
+           
+            do{
+                System.out.println("Digite o produto que deseja incluir na venda:");
+                codigo = Teclado.lerInt();
+                p = ProdutoBD.findProdutoCodigo(codigo);
+                
+                 if(p != null){
+                 System.out.println(p.getNome());
+                  System.out.println("deseja prosseguir? s/n");
+                  resposta = Teclado.lerString();
+                  
+             }else{
+                 System.out.println("Produto não localizado");
+                 resposta = "n";
+             }
+                 
+                
+            
+            }while(!(resposta.equals("s")));
+            
+           
+           
+           return p;
+           
+           
        }
      
 }

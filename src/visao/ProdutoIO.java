@@ -40,8 +40,7 @@ public class ProdutoIO {
         System.out.println("Valor de compra"+p.getValorCompra());
         System.out.println("Valor de venda: "+ p.getValorVenda());
         
-        
-        
+              
     } 
     
     public static void printList(ArrayList <ProdutoBO> lista){

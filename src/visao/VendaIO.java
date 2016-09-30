@@ -21,6 +21,14 @@ public class VendaIO {
         int codigoCliente = ClienteCL.chooseCliente().getCodigo();
         return new VendaBO(codigo, dataVenda, codigoCliente); 
     }
+    public static void printVenda(VendaBO v){
+        System.out.println("Codigo :"+v.getCodigoVenda());
+        System.out.println("data venda: " + v.getDataVenda());
+        System.out.println("cliente :"+ v.getCodigoCliente());
+        
+     
+        
+    }
     
     
     

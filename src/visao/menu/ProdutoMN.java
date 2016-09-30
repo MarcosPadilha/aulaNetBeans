@@ -17,7 +17,7 @@ public class ProdutoMN {
     
     public static int showMenu(){
         int opcao = 0;
-        System.out.println("Módulo para clientes: ");
+        System.out.println("Módulo para produtos: ");
         do{
              System.out.println("1- para cadastrar prduto");
             System.out.println("2- para consultar por código");

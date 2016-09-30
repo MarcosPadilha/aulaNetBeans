@@ -7,6 +7,7 @@ package visao;
 
 
 import controle.ClienteCL;
+import controle.VendaCL;
 import java.util.ArrayList;
 
 
@@ -18,6 +19,7 @@ import persistencia.ClienteBD;
 import persistencia.FornecedorBD;
 import visao.menu.ClienteMN;
 import visao.menu.FornecedorMN;
+import visao.menu.MenuGeral;
 import visao.menu.ProdutoMN;
 
 
@@ -28,11 +30,9 @@ import visao.menu.ProdutoMN;
 public class Teste {
     public static void main(String[] args) {
 
- // ProdutoMN.execute();
- CompraIO.getInstance();
+        MenuGeral.execute();
+        
    
-    
-    
     }
     
 }

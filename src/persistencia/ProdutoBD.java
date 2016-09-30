@@ -96,9 +96,19 @@ public class ProdutoBD {
     }
        public static ArrayList <ProdutoBO> findProdutoEstoqueBaixo(){
        ArrayList <ProdutoBO> lista = new ArrayList();
+       for(ProdutoBO p : base){
+           if(p.getEstoque()<= p.getEstoqueSegurança()){
+          lista.add(p);
+           }
+       }
+            if(lista.isEmpty()){
+            return null;
+            }else{
+
+                  return lista;
+                }
        
-       
-       return lista;
+     
        }
       
     
