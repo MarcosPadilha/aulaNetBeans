@@ -83,7 +83,7 @@ public class ProdutoMN {
                         saida = Teclado.lerString();
                         break;
                     case 6:// atualizar produto
-                       if(ProdutoCL.updateCliente()){
+                       if(ProdutoCL.updateProduto()){
                            System.out.println("Prodotu alterado com sucesso ");
                        }else{
                            System.out.println("Erro ao alterar produto");

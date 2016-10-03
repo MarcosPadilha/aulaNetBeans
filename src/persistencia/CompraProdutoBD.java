@@ -25,6 +25,23 @@ public class CompraProdutoBD {
         return base;
         
     }
+    
+    public static ArrayList<CompraProdutoBO> findProdutosComprados(int codigoCompra){
+       ArrayList<CompraProdutoBO> resposta = new ArrayList();
+       for(CompraProdutoBO pc: base){
+        if(pc.getCodigoCompra()==codigoCompra){
+               resposta.add(pc);
+               
+        }
+      }
+       if(resposta.isEmpty()){
+           return null;
+           
+       }else{
+           return resposta;
+       }
+    
+    }
      
      
     

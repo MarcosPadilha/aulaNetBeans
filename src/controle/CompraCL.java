@@ -31,10 +31,28 @@ public class CompraCL {
             finalizar = Teclado.lerString();
         
         }while(!(finalizar.equalsIgnoreCase("n")));
-     } 
+     }
+      
+      
     
    }
-       
+    
+     public static void findCOmpraCodigo( int codigo){
+        CompraBO v = CompraBD.findCompraCodigo(codigo);
+        if(v!=null){
+         CompraIO.printCompra(v);  
+        }else{//depois troca por exceção
+            System.out.println("nao encontrado ");  
+        }
+    
+   
+    
+    }
+      public static void showCompras(){
+          CompraIO.printList(CompraBD.getAll());
+    
+    }
+      
       
       
            

@@ -6,6 +6,7 @@
 package visao;
 
 import controle.FornecedorCL;
+import java.util.ArrayList;
 import negocio.CompraBO;
 
 /**
@@ -23,6 +24,28 @@ public class CompraIO {
         return new CompraBO(codigo, dataVenda, codigoCliente); 
         
     }
+    
+    public static void printCompra(CompraBO c){
+         System.out.println("Codigo :"+c.getCodigoVenda());
+        System.out.println("data venda: " + c.getDataCompra());
+        System.out.println("cliente :"+ c.getCodFornecedor());
+    
+    
+    }
+   
+    public static void printList (ArrayList <CompraBO> lista){
+        System.out.println("lista de clientes :");
+        for(CompraBO cadaCompra: lista){
+        printCompra(cadaCompra);
+            System.out.println("------------------");
+        }
+        
+    }
+    
+    
+    
+    
+    
     
     
 }

@@ -19,21 +19,33 @@ public class CompraMN {
         do{
         System.out.println("Digite 1 para cadastrar uma compra");
         System.out.println("Digite 2 para buscar compra por codigo");
+        System.out.println("Digite 3 para buscar por produtos comprados");
         System.out.println("Digite 0 para sair");
         opcao = Teclado.lerInt();
         return opcao;
-        }while(opcao<0 | opcao>2);
+        }while(opcao<0 | opcao>3);
     }
     public static void execute(){
         int opcao = showMenu();
         String saida;
         double valor;
+        int codigo;
             switch(opcao){
                 case 1:
                     CompraCL.newVenda();
+                     System.out.println("pressione enter para continuar ");
+                            saida = Teclado.lerString();
                     break;
                 case 2:
+                    System.out.println("Código da venda para sua busca: ");
+                            codigo = Teclado.lerInt();
+                            CompraCL.findCOmpraCodigo(codigo);
+                            System.out.println("pressione enter para continuar ");
+                            saida = Teclado.lerString();
+                    
                     break;
+                case 3:
+                    System.out.println("método ainda não implementado");
             
             
             }

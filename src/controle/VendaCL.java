@@ -36,7 +36,7 @@ public class VendaCL {
         
         }
     }
-     public static void findClienteCodigo( int codigo){
+     public static void findVendaCodigo( int codigo){
         VendaBO v = VendaBD.findVendaCodigo(codigo);
         if(v!=null){
          VendaIO.printVenda(v);  
@@ -44,8 +44,14 @@ public class VendaCL {
             System.out.println("nao encontrado ");  
         }
     
-    
-    
-    
+
     }
+     
+     public static void showVendas(){
+         VendaIO.printList(VendaBD.getAll());
+     }
+     
+     
+     
+     
 }

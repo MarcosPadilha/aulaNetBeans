@@ -22,9 +22,11 @@ public class VendaBD {
     }
     
     public static ArrayList<VendaBO> getAll(){
-        return base;
+    
+         return base;
+    }       
  
-    }
+    
     
        public static VendaBO findVendaCodigo(int codigo){
     for(VendaBO v : base){
@@ -35,4 +37,27 @@ public class VendaBD {
     }
        return null; 
     }
+       public static boolean delete(int codigo){
+    int linha = posVendaCodigo(codigo);
+        if(linha!= -1){
+            base.remove(linha);
+           return true; 
+        }else{
+            return false;
+        }
+       
+    }
+        public static int posVendaCodigo(int codigo){
+        int linha = 0;
+        for(VendaBO v : base){
+            if(v.getCodigoVenda() == codigo){
+            return linha;
+            }
+            linha++;
+        }
+        return -1;
+        
+    }
+       
+       
 }

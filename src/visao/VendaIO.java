@@ -6,6 +6,7 @@
 package visao;
 
 import controle.ClienteCL;
+import java.util.ArrayList;
 import negocio.VendaBO;
 
 /**
@@ -21,12 +22,22 @@ public class VendaIO {
         int codigoCliente = ClienteCL.chooseCliente().getCodigo();
         return new VendaBO(codigo, dataVenda, codigoCliente); 
     }
+    
     public static void printVenda(VendaBO v){
         System.out.println("Codigo :"+v.getCodigoVenda());
         System.out.println("data venda: " + v.getDataVenda());
         System.out.println("cliente :"+ v.getCodigoCliente());
         
      
+        
+    }
+    
+     public static void printList(ArrayList <VendaBO> lista){
+        System.out.println("lista de clientes :");
+        for(VendaBO cadaVenda: lista){
+        printVenda(cadaVenda);
+            System.out.println("------------------");
+        }
         
     }
     

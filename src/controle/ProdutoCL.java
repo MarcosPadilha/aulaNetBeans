@@ -31,7 +31,7 @@ public class ProdutoCL {
     return ProdutoBD.delete(codigo);
     }
     
-    public static boolean updateCliente(){
+    public static boolean updateProduto(){
     ProdutoBO c = ProdutoIO.getInstance();
     return ProdutoBD.update(c);
     
@@ -57,6 +57,8 @@ public class ProdutoCL {
       }
        
        public static void findProdutoEstoqueBaixo(){
+           ProdutoBD.findProdutoEstoqueBaixo();
+           
        
        }
        
@@ -66,7 +68,7 @@ public class ProdutoCL {
            int codigo = 0;
            
             do{
-                System.out.println("Digite o produto que deseja incluir na venda:");
+                System.out.println("Digite o produto que deseja incluir :");
                 codigo = Teclado.lerInt();
                 p = ProdutoBD.findProdutoCodigo(codigo);
                 

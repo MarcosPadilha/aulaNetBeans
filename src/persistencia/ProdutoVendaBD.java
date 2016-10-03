@@ -27,6 +27,23 @@ public class ProdutoVendaBD {
         
     }
     
+    public static ArrayList<ProdutoVendaBO> findProdutoVendidos(int codigoVenda){
+       ArrayList<ProdutoVendaBO> resposta = new ArrayList();
+       for(ProdutoVendaBO pv: base){
+        if(pv.getCodigoVenda()==codigoVenda){
+               resposta.add(pv);
+               
+        }
+      }
+       if(resposta.isEmpty()){
+           return null;
+           
+       }else{
+           return resposta;
+       }
+    
+    }
+    
     
     
     
