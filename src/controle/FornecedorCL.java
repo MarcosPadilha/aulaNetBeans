@@ -5,6 +5,7 @@
  */
 package controle;
 
+import java.util.ArrayList;
 import negocio.CompraBO;
 import negocio.FornecedorBO;
 import persistencia.FornecedorBD;
@@ -29,13 +30,28 @@ public class FornecedorCL {
     return FornecedorBD.save(f);
     
     }
+    
+    
+    
+    public static boolean newFornecedor(FornecedorBO f){
+        
+        return FornecedorBD.save(f);
+    
+    }
+    
+    
+    
     /**
      * método que chama um método da classe FornecedorIO chamado printList
      * que passa como parâmetro um metodo da classe FornecedorBD chamado getAll.
+     * @return ArrayList
      */
-    public static void showFornecedores(){
-    FornecedorIO.printList(FornecedorBD.getAll());
-    }
+    
+     public static ArrayList<FornecedorBO> showFornecedores(){
+            return FornecedorBD.getAll();
+            
+        }
+    /*
     public static void findFornecedorCodigo(int codigo){
     
        FornecedorBO b = FornecedorBD.findFornecedorCodigo(codigo);
@@ -44,28 +60,36 @@ public class FornecedorCL {
        }else{
            System.out.println("não encontrado");
        }
+     
+     */
+       public static FornecedorBO findFornecedorCodigo(int codigo){
+            FornecedorBO f = FornecedorBD.findFornecedorCodigo(codigo);
+            
+           return f;
+           
+       }
+        
+       
         
         
-        
-        
-        
-    }
+       
+    
     /**
      * deleta fornecedor
-     * @param codigo
-     * @return 
+     * @param  codigo int
+     * @return boolean
      */
     public static boolean deleteFornecedor(int codigo){
     return FornecedorBD.delete(codigo);
     }
-    public static boolean updateFornecedor(){
-    FornecedorBO b = FornecedorIO.getInstance();
-        return FornecedorBD.update(b);
+    public static boolean updateFornecedor(FornecedorBO f){
+    
+        return FornecedorBD.update(f);
     
     }
     /**
      * escolhe o fornecedor pelo código para realizar uma compra.
-     * @return 
+     * @return FornecedorBO
      */
     public static FornecedorBO chooseFornecedor(){
         int codigo;

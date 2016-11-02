@@ -25,7 +25,11 @@ public class CompraProdutoBD {
         return base;
         
     }
-    
+    /**
+     * método que busca por produtos comprados
+     * @param  codigoCompra int
+     * @return arrayList
+     */
     public static ArrayList<CompraProdutoBO> findProdutosComprados(int codigoCompra){
        ArrayList<CompraProdutoBO> resposta = new ArrayList();
        for(CompraProdutoBO pc: base){

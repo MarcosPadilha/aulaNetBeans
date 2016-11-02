@@ -5,6 +5,7 @@
  */
 package controle;
 
+import java.util.ArrayList;
 import negocio.CompraBO;
 import negocio.CompraProdutoBO;
 import persistencia.CompraBD;
@@ -18,7 +19,11 @@ import visao.Teclado;
  * @author faculdade.ads
  */
 public class CompraCL {
-    
+    /**
+     * cria objeto tipo compraBO que pega a instância do COmpraIO
+     * salva no banco o objeto, cria um objeto do tipo CompraProdutoBO e este recebe 
+     * um getInstance do COmpraIO que passa por parâmetro o método getCodigoCompra
+     */
     public static void newVenda(){
     String finalizar = null;
     CompraBO compra = CompraIO.getInstance();
@@ -26,7 +31,7 @@ public class CompraCL {
       CompraProdutoBO item;
       
         do{
-            item = CompraProdutoIO.getInstance(compra.getCodigoVenda());
+            item = CompraProdutoIO.getInstance(compra.getCodigoCompra());
             System.out.println("Continuar? s/n");
             finalizar = Teclado.lerString();
         
@@ -52,6 +57,12 @@ public class CompraCL {
           CompraIO.printList(CompraBD.getAll());
     
     }
+      public static void findProdutosComprados(int codigo){
+         ArrayList<CompraProdutoBO> item =  CompraProdutoBD.findProdutosComprados(codigo);
+          CompraProdutoIO.printList(item);
+          
+          
+      }
       
       
       

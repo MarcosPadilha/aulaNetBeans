@@ -16,7 +16,7 @@ import visao.Teclado;
 public class FornecedorMN {
     /**
      * método que cria um menu principal com cadastrar fornecedores, listar e voltar.
-     * @return 
+     * @return int
      */
     public static int showMenu(){
         System.out.println("Módulo de fornecedores :");
@@ -69,6 +69,7 @@ public class FornecedorMN {
                 saida = Teclado.lerString();
                 break;
             case 4:
+  /*
                 if(FornecedorCL.updateFornecedor()){
                     System.out.println("Cliente atualizado com sucesso");
                 }else{
@@ -77,6 +78,7 @@ public class FornecedorMN {
                      System.out.println("pressione enter para conrinuar");
                      saida = Teclado.lerString();
                  break;
+*/
             case 5:
                 System.out.println("dogite o codigo do fornecedor que deseja deletar");
                 codigo = Teclado.lerInt();

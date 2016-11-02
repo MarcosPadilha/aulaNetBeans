@@ -17,7 +17,7 @@ public class FornecedorBD {
     public static ArrayList <FornecedorBO> baseFornecedores = new ArrayList();
     /**
      * método que salva, adiciona no array base os fornecedores.
-     * @param item
+     * @param   item FornecedorBO
      * 
      * @return boolean
      * 
@@ -39,7 +39,7 @@ public class FornecedorBD {
   
  /**
   * método que procura fornecedor pelo código
-  * @param codigo
+  * @param  codigo int
   * @return objeto do tipo FornecedorBO ou um nulo.
   */        
          public static FornecedorBO findFornecedorCodigo(int codigo){
@@ -52,7 +52,7 @@ public class FornecedorBD {
          }
   /**
    * método que devolve a posição no array de um fornecedor buscado pelo código
-   * @param codigo
+   * @param  codigo int
    * @return posição do procurado ou posiçao inexistente.
    */       
          public static int posFornecedorCodigo(int codigo){
@@ -86,5 +86,6 @@ public class FornecedorBD {
         }else{
         return false;
         }
+        
        }
 }

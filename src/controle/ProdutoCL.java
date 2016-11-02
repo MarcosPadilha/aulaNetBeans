@@ -23,29 +23,32 @@ public class ProdutoCL {
     return ProdutoBD.save(p);
     
     }
-    public static void showProdutos(){
-        ProdutoIO.printList(ProdutoBD.getAll());
+    public static boolean newProduto(ProdutoBO p){
+   
+    return ProdutoBD.save(p);
+    
+    }
+    
+    public static ArrayList<ProdutoBO> showProdutos(){
+       return ProdutoBD.getAll();
     }
     
      public static boolean deleteProduto(int codigo){
     return ProdutoBD.delete(codigo);
     }
     
-    public static boolean updateProduto(){
-    ProdutoBO c = ProdutoIO.getInstance();
-    return ProdutoBD.update(c);
+    public static boolean updateProduto(ProdutoBO p){
+   
+    return ProdutoBD.update(p);
     
     }
     
-     public static void findProdutoCodigo( int codigo){
+     public static ProdutoBO findProdutoCodigo( int codigo){
         ProdutoBO c = ProdutoBD.findProdutoCodigo(codigo);
-        if(c!=null){
-         ProdutoIO.printProduto(c);  
-        }else{//depois troca por exceção
-            System.out.println("nao encontrado ");  
-        }
+        return c;
         
     }
+     
        public static void findProdutoValorCompra( double valor, int opcao){
           ArrayList<ProdutoBO> resposta = new ArrayList();
             resposta = ProdutoBD.findProdutoValorCompra(valor, opcao);

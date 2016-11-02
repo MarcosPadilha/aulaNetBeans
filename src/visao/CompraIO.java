@@ -26,7 +26,7 @@ public class CompraIO {
     }
     
     public static void printCompra(CompraBO c){
-         System.out.println("Codigo :"+c.getCodigoVenda());
+         System.out.println("Codigo :"+c.getCodigoCompra());
         System.out.println("data venda: " + c.getDataCompra());
         System.out.println("cliente :"+ c.getCodFornecedor());
     

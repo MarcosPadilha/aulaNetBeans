@@ -17,7 +17,7 @@ import negocio.EnderecoBO;
 public class ClienteIO {
     /**
      * método que cria um objeto com informações digitadas pelo usuário.
-     * @return 
+     * @return ClienteBO
      */
     public static ClienteBO getInstance(){
         System.out.println("Código: ");
@@ -37,7 +37,7 @@ public class ClienteIO {
     }
     /**
      * método cria saidas de tela com dados de cliente criado.
-     * @param c 
+     * @param  c ClienteBO
      * 
      */
     public static void printCliente(ClienteBO c){
@@ -53,7 +53,7 @@ public class ClienteIO {
     }
     /**Método que cria um arrayList do tipo ClienteBO mostrando na tela todos clientes criados.
      * 
-     * @param lista 
+     * @param  lista  ClienteBO
      */
     public static void printList(ArrayList <ClienteBO> lista){
         System.out.println("lista de clientes :");

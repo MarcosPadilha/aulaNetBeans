@@ -39,7 +39,7 @@ public class FornecedorIO {
     }
     /**
      * método que mostra na tela fornecedor criado.
-     * @param f 
+     * @param  f FornecedorBO
      */
        public static void printFornecedor(FornecedorBO f){
         System.out.println("Codigo"+f.getCodigo());
@@ -53,7 +53,7 @@ public class FornecedorIO {
     }
      /**
       * método que cria um array com todos fornecedores criados
-      * @param lista 
+      * @param  lista ArrayList
       */  
        public static void printList(ArrayList<FornecedorBO> lista){
            System.out.println("lista de fornecedores :");

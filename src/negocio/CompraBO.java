@@ -12,22 +12,22 @@ import java.util.Date;
  * @author faculdade.ads
  */
 public class CompraBO {
-    private int codigoVenda;
+    private int codigoCompra;
     private String dataCompra;
     private int codFornecedor;
 
-    public CompraBO(int codigoVenda, String dataCompra, int codFornecedor) {
-        this.codigoVenda = codigoVenda;
+    public CompraBO(int codigoCompra, String dataCompra, int codFornecedor) {
+        this.codigoCompra = codigoCompra;
         this.dataCompra = dataCompra;
         this.codFornecedor = codFornecedor;
     }
 
-    public int getCodigoVenda() {
-        return codigoVenda;
+    public int getCodigoCompra() {
+        return codigoCompra;
     }
 
-    public void setCodigoVenda(int codigoVenda) {
-        this.codigoVenda = codigoVenda;
+    public void setCodigoCompra(int codigoVenda) {
+        this.codigoCompra = codigoVenda;
     }
 
     public String getDataCompra() {

@@ -15,7 +15,7 @@ public class MenuGeral {
     public static int showMenu(){
         int opcao;
         do{
-            System.out.println("Controle de estoque");
+            System.out.println("Controle de vendas");
             System.out.println("1- Módulo de clientes");
             System.out.println("2- Módulo de fornecedores");
             System.out.println("3- Módulo de produtos");

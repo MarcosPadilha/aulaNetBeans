@@ -5,6 +5,7 @@
  */
 package controle;
 
+import java.util.ArrayList;
 import negocio.ProdutoVendaBO;
 import negocio.VendaBO;
 import persistencia.ProdutoVendaBD;
@@ -19,36 +20,39 @@ import visao.VendaIO;
  */
 public class VendaCL {
     
-    public static  void newVenda(){
-        String finalizar;
-    VendaBO venda = VendaIO.getInstance();
-        if(VendaBD.save(venda)){
-        ProdutoVendaBO item;
-        
-            do{
-                item = ProdutoVendaIO.getInstance(venda.getCodigoVenda());
-                
-                ProdutoVendaBD.save(item);
-                System.out.println("Continuar? s/n");
-                finalizar = Teclado.lerString();
-                
-            }while(!(finalizar.equalsIgnoreCase("n")));
-        
-        }
+ 
+    
+    public static void newVenda(VendaBO v){
+    VendaBO venda = v;
+    if(VendaBD.save(venda)){
+    
+    
+    
     }
-     public static void findVendaCodigo( int codigo){
+    
+   
+    
+    }
+    
+     public static ArrayList<ProdutoVendaBO>  salvaProdutosVendidos(ProdutoVendaBO item){
+         
+         ProdutoVendaBD.save(item);
+    
+         return null;
+    }
+     public static VendaBO findVendaCodigo( int codigo){
         VendaBO v = VendaBD.findVendaCodigo(codigo);
         if(v!=null){
-         VendaIO.printVenda(v);  
-        }else{//depois troca por exceção
-            System.out.println("nao encontrado ");  
+          return v;
+        }else{
+        return null;
         }
     
-
+            
     }
      
-     public static void showVendas(){
-         VendaIO.printList(VendaBD.getAll());
+     public static ArrayList<VendaBO> showVendas(){
+          return VendaBD.getAll();
      }
      
      

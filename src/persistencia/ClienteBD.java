@@ -20,7 +20,7 @@ public class ClienteBD {
  private static ArrayList<ClienteBO> base = new ArrayList(); 
  /**
   * método que salva os clientes no array base criado aqui em cima.
-  * @param item
+  * @param  item - objeto ClienteBO
   * @return boolean
   */
     public static boolean save(ClienteBO item){
@@ -32,8 +32,8 @@ public class ClienteBD {
     * método que chama o método desta classe chamado
     * posCodigoCliente que verifica a posição do cliente no array
     * se existir ele deleta, se não, ele retorna false.
-    * @param codigo
-    * @return 
+    * @param  codigo - inteiro
+    * @return boolean
     */
     public static boolean delete(int codigo){
     int linha = posClienteCodigo(codigo);
@@ -45,6 +45,11 @@ public class ClienteBD {
         }
        
     }
+  /**
+   * Atualiza um registro
+   * @param  dado CLienteBO
+   * @return boolean
+   */  
     
     public static boolean update(ClienteBO dado){
     int linha = posClienteCodigo(dado.getCodigo());
@@ -67,7 +72,7 @@ public class ClienteBD {
     }       
     /**
      * método que encontra cliente pelo codigo enviado via parâmetro.
-     * @param codigo
+     * @param  codigo - valor int
      * @return objeto tipo ClienteBO com o cliente buscado ou um nulo.
      */
     public static ClienteBO findClienteCodigo(int codigo){
@@ -81,8 +86,8 @@ public class ClienteBD {
     }
     /**
      * método que encontra a posição de um determinado cliente no array.
-     * @param codigo
-     * @return posiçao no array
+     * @param  codigo - int
+     * @return int
      */
     public static int posClienteCodigo(int codigo){
         int linha = 0;
@@ -98,9 +103,9 @@ public class ClienteBD {
 /**
  * método que busca clientes quew atendam às características de renda passadas pelo parâmetro
  * e de acordo a opçao restritiva enviada.
- * @param renda
- * @param opcao
- * @return devolve um  objeto array com os clientes encontrados ou um nulo.
+ * @param  renda double
+ * @param  opcao int
+ * @return Arraylist
  */    
    public static ArrayList <ClienteBO> findClienteRenda(double renda, int opcao){
        ArrayList <ClienteBO> resposta = new ArrayList();
@@ -131,5 +136,78 @@ public class ClienteBD {
        
       
     }
-
+   
+  /**
+   * Busca ciente com renda maior que 5000
+   * @return arrrayList
+   */
+   public static ArrayList<ClienteBO> findRendaMaior5000(){
+     ArrayList <ClienteBO> resposta = new ArrayList();
+      for(ClienteBO c : base){
+          if(c.getRenda() >5000){
+          resposta.add(c);
+          }
+          
+      }
+          
+   return resposta;
+   }
+   
+   /**
+    * busca maior renda
+    * @return ArrayList
+    */
+   
+    public static ArrayList<ClienteBO> findRendaMaior(){
+     ArrayList <ClienteBO> resposta = new ArrayList();
+    
+       double maior = 0;
+      
+      for(ClienteBO c : base){
+          
+          if(c.getRenda() >= maior){
+              maior = c.getRenda();      
+             
+          }
+                 
+      }
+      
+      for(ClienteBO cliente : base){
+          
+          if(cliente.getRenda() >= maior){
+              resposta.add(cliente);
+             
+          }
+                 
+      } 
+           return resposta;
+         
+   }
+    
+     /**
+      * busca a media de renda.
+      * @return double.
+      */
+  public static double mediaRenda(){
+       
+      int total = 0;
+      double media;
+      double valor = 0;
+   for(ClienteBO c : base){
+       valor += c.getRenda();
+       
+       total++;
+   }
+   media = valor/total;
+  
+   return media;
+  } 
+  
+  
 }
+
+
+    
+
+
+

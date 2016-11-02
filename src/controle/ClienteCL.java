@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import negocio.ClienteBO;
 import persistencia.ClienteBD;
 import visao.ClienteIO;
+import visao.ClienteUI;
 import visao.Teclado;
 
 /**
@@ -20,40 +21,51 @@ public class ClienteCL {
      * método que chama o método da classe ClienteIO para exibir um menu na tela.
      * @return objeto ClienteBD com esse menu pronto para ser chamado.
      */
-    public static boolean newCliente(){
-    ClienteBO c = ClienteIO.getInstance();
-       return ClienteBD.save(c);
-       
+    
+   
+   
+    
+    /**
+     * Grava um novo cliente.
+     * @param  cliente ClienteBO
+     * @return Boolean.
+     */
+    
+    public static boolean newCliente(ClienteBO cliente){
+             
+        return ClienteBD.save(cliente);
     }
+    
     /**Método que delete clientes.
      * 
-     * @param codigo
+     * @param  codigo int
      * @return boolean
      */
     public static boolean deleteCliente(int codigo){
     return ClienteBD.delete(codigo);
     }
+    /**
+     * Atualiza um registro.
+     * @param  c ClienteBO
+     * @return boolean
+     */
+    public static boolean updateCliente(ClienteBO c){
     
-    public static boolean updateCliente(){
-    ClienteBO c = ClienteIO.getInstance();
     return ClienteBD.update(c);
     }
     
     /**
      * método que chama um método da classe ClienteIO que mostra todo na tela passando como parâmetro o
      *método gettAll da classe CLienteBD que pega todos os clientes.
-     * 
+     * @return ArrayList
      */
-    public static void showClientes(){
-    ClienteIO.printList(ClienteBD.getAll());
+   
+   
+      public static ArrayList<ClienteBO> showClientes(){
+          return ClienteBD.getAll();
+      }
     
-    
-    }
-    /**
-     * método que cria um objeto tipo ClienteBD e procura por codigo, se existir ele cria um objeto da classe
-     * ClienteIO e chama o metodo printCliente com base nesse cliente achado.
-     * @param codigo 
-     */
+  /*
     public static void findClienteCodigo( int codigo){
         ClienteBO c = ClienteBD.findClienteCodigo(codigo);
         if(c!=null){
@@ -63,14 +75,29 @@ public class ClienteCL {
         }
         
     }
+      
+      */
+      /**
+       * 
+       * @param  codigo int
+       * @return ClienteBO
+       */
+    public static ClienteBO findClienteCodigo(int codigo){
+        ClienteBO c = ClienteBD.findClienteCodigo(codigo);
+        return c;
+        
+    }
+    
+    
    /**
     * Método que busca cliente por renda criando um arrayList tipo ClienteBO 
     * que chama o método findClienteRenda da classe ClienteBD. Se a resposta for null
     * ele manda um print "não encontrado" se existir, ele manda um arrayList vindo de 
     * um método chamado printList da classe ClienteIO.
-    * @param renda
-    * @param opcao 
+    * @param  renda double
+    * @param   opcao int
     */
+    
       public static void findClienteRenda( double renda, int opcao){
           ArrayList<ClienteBO> resposta = new ArrayList();
             resposta = ClienteBD.findClienteRenda(renda, opcao);
@@ -82,7 +109,7 @@ public class ClienteCL {
       }
       /**
        * busca cliente pelo código.
-       * @return 
+       * @return ClienteBO
        */
       public static ClienteBO chooseCliente(){
           String resposta = null;
@@ -106,7 +133,44 @@ public class ClienteCL {
              
              return c;
           }
+      
+      /**
+       * busca renda maior que 5000
+       * 
+       */
+      public static void findRendaMaior5000(){
+     ArrayList<ClienteBO> resposta = new ArrayList();
+            resposta = ClienteBD.findRendaMaior5000();
+            if(resposta!=null){
+                ClienteIO.printList(resposta);
+            }else{
+                System.out.println("Nenhum Cliente ganha mais de 5000");
+            }
+      
+      
+      }
+      /**
+       * imprime a média das rendas.
+       * 
+       */
+       public static void mediaRenda(){
+           
+           System.out.println("A média de renda dos clientes é " + ClienteBD.mediaRenda());
+           
+           
+       }
+       /**
+        * busca maior renda.
+        */
+       public static void RendaMaior(){
+           ArrayList<ClienteBO> lista = new ArrayList();
           
+           lista = ClienteBD.findRendaMaior();
+           ClienteIO.printList(lista);
+       
+       
+       
+       }
           
           
       }

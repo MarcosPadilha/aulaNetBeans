@@ -33,7 +33,8 @@ public class VendaMN {
         int codigo;
             switch(opcao){
                 case 1:
-                    VendaCL.newVenda();
+                 //   VendaCL.newVenda();
+                                         
                     break;
                 case 2:
                     VendaCL.showVendas();

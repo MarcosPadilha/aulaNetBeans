@@ -9,11 +9,8 @@ package visao;
 import controle.ClienteCL;
 import controle.VendaCL;
 import java.util.ArrayList;
-
-
 import negocio.CPFBO;
 import negocio.ClienteBO;
-
 import negocio.EnderecoBO;
 import persistencia.ClienteBD;
 import persistencia.FornecedorBD;
@@ -30,9 +27,13 @@ import visao.menu.ProdutoMN;
 public class Teste {
     public static void main(String[] args) {
 
-        MenuGeral.execute();
+    MenuCadastros frmCliente = new MenuCadastros();
+    frmCliente.setVisible(true);
         
+    
+    
    
     }
+    
     
 }

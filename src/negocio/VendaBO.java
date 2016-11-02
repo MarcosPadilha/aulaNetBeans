@@ -16,12 +16,24 @@ public class VendaBO {
     private int codigoVenda;
     private String dataVenda;
     private int codigoCliente;
+    private Double valorTotal;
 
-    public VendaBO(int codigoVenda, String dataVenda, int codigoCliente) {
+    public VendaBO(int codigoVenda, String dataVenda, int codigoCliente, double valorTotal) {
         this.codigoVenda = codigoVenda;
         this.dataVenda = dataVenda;
         this.codigoCliente = codigoCliente;
+        this.valorTotal = valorTotal;
     }
+
+    public Double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(Double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+    
+    
 
     public int getCodigoVenda() {
         return codigoVenda;

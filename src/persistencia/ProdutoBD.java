@@ -11,14 +11,16 @@ import negocio.ProdutoBO;
 
 /**
  *
- * @author tecnico.ti
+ * @author Marcos
  */
 public class ProdutoBD {
     private static ArrayList <ProdutoBO> base = new ArrayList();
+    
     public static boolean save(ProdutoBO item){
     base.add(item);
     return true;
     }
+    
     public static ArrayList<ProdutoBO> getAll(){
         return base;
     }

@@ -46,7 +46,7 @@ public class Teclado {
     
     /**
      * Getter para o Scanner da instancia
-     * @access  Public
+     * 
      * @return  Scanner
      */
     public Scanner getScanner(){
@@ -55,7 +55,7 @@ public class Teclado {
     
     /**
      * Le um byte e limpa o buffer para evitar erros de leitura subsequentes
-     * @access  Public
+     * 
      * @return  Byte
      */
     public static byte lerByte(){
@@ -66,7 +66,7 @@ public class Teclado {
     
     /**
      * Le um inteiro e limpa o buffer para evitar erros de leitura subsequente
-     * @access  Public
+     * 
      * @return  int
      */
     public static int lerInt(){
@@ -77,7 +77,7 @@ public class Teclado {
     
     /**
      * Le um Double e limpa o buffer para evitar erros de leitura subsequente
-     * @access  Public
+     * 
      * @return  double
      */
     public static double lerDouble(){
@@ -88,7 +88,7 @@ public class Teclado {
     
     /**
      * Le uma string
-     * @access  Public
+     * 
      * @return  String
      */
     public static String lerString(){

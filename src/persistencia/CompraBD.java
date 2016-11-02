@@ -30,7 +30,7 @@ public class CompraBD {
     
       public static CompraBO findCompraCodigo(int codigo){
     for(CompraBO c : base){
-        if(c.getCodigoVenda() == codigo){
+        if(c.getCodigoCompra() == codigo){
             
             return c;
         }
@@ -49,8 +49,8 @@ public class CompraBD {
     }
         public static int posCompraVenda(int codigo){
         int linha = 0;
-        for(CompraBO v : base){
-            if(v.getCodigoVenda() == codigo){
+        for(CompraBO c : base){
+            if(c.getCodigoCompra()== codigo){
             return linha;
             }
             linha++;

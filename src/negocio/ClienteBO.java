@@ -79,7 +79,7 @@ public class ClienteBO {
         this.endereco = endereco;
     }
     
-   // itens do fornecedor: razao social, nome fantasia,telefone, codigo, contato, email, cnpj, endereco.
+  
 
     public double getRenda() {
         return renda;
@@ -88,6 +88,13 @@ public class ClienteBO {
     public void setRenda(double renda) {
         this.renda = renda;
     }
+   @Override
+    public String toString(){
+
+    return getNome();
+}
+    
+
     
     
     

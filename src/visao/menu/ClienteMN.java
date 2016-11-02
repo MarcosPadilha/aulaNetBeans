@@ -16,7 +16,7 @@ import visao.Teclado;
 public class ClienteMN {
     /**
      * método que cria um menu principal com opções de cadastrar clientes, listar e voltar.
-     * @return 
+     * @return int
      */
     public static int showMenu(){
     
@@ -27,16 +27,20 @@ public class ClienteMN {
             System.out.println("2- para consultar por código");
             System.out.println("3- para consultar por renda mínima");
             System.out.println("4- para consultar por renda máxima");         
-            System.out.println("5- para listar os cilentes");
+            System.out.println("5- para listar todos os cilentes");
+           
             System.out.println("6- para alterar um cliente");
             System.out.println("7- para deletar um cliente");
+            System.out.println("8- para buscar clientes com renda maior que 5000");
+            System.out.println("9- para mostrar a media de renda dos clientes");
+            System.out.println("10 -para buscar cliente com maior renda");
             System.out.println("0- para voltar");
            
             System.out.println("informe uma ação: ");
             opcao = Teclado.lerInt();
             
             
-        }while(opcao < 0 || opcao > 7);
+        }while(opcao < 0 || opcao > 10);
         
         return opcao;
     }
@@ -52,6 +56,7 @@ public class ClienteMN {
             do{
                 opcao = showMenu();
                     switch(opcao){
+                        /*
                         case 1://novo cliente
                        
                             if(ClienteCL.newCliente()){
@@ -62,6 +67,7 @@ public class ClienteMN {
                                  System.out.println("pressione enter para continuar");
                                  saida = Teclado.lerString();
                         break;
+*/
                         case 2: //consultar 
                             System.out.println("Código de cliente para sua busca: ");
                             codigo = Teclado.lerInt();                            
@@ -89,7 +95,20 @@ public class ClienteMN {
                             System.out.println("pressione enter para continuar");
                             saida = Teclado.lerString();
                          break;
-                        case 7: //deletar
+                        
+                        case 6:
+                            
+// atualizar
+                            //if(ClienteCL.updateCliente()){
+                              //  System.out.println("Cliente alterado");
+                          //  }else{
+                           //     System.out.println("Problemas ao alterar");
+                          //  }
+                          //  System.out.println("Pressione enter ao alterar");
+                          //  saida = Teclado.lerString();
+                          //  break;
+                            
+                            case 7: //deletar
                             
                             System.out.println("digite um código para busca");
                             codigo = Teclado.lerInt();
@@ -101,16 +120,25 @@ public class ClienteMN {
                                System.out.println("pressione enter para continuar");
                               saida =Teclado.lerString();
                             break;
-                        case 6: // atualizar
-                            if(ClienteCL.updateCliente()){
-                                System.out.println("Cliente alterado");
-                            }else{
-                                System.out.println("Problemas ao alterar");
-                            }
-                            System.out.println("Pressione enter ao alterar");
+                            
+                            case 8:
+                                System.out.println("Clientes com renda maior que 5000: ");
+                                ClienteCL.findRendaMaior5000();
+                                
+                                System.out.println("Pressione enter para continuar");
                             saida = Teclado.lerString();
                             break;
-                            
+                            case 9:
+                                ClienteCL.mediaRenda();
+                                System.out.println("Pressione enter para continuar");
+                            saida = Teclado.lerString();
+                            break;
+                            case 10:
+                                ClienteCL.RendaMaior();
+                                
+                            System.out.println("Pressione enter para continuar");
+                            saida = Teclado.lerString();
+                            break;
                     }
                     
             }while(opcao!=0);

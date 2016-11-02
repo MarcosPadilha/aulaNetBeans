@@ -82,6 +82,7 @@ public class ProdutoMN {
                         System.out.println("Digite enter para continuar:");
                         saida = Teclado.lerString();
                         break;
+                        /*
                     case 6:// atualizar produto
                        if(ProdutoCL.updateProduto()){
                            System.out.println("Prodotu alterado com sucesso ");
@@ -91,19 +92,20 @@ public class ProdutoMN {
                         System.out.println("Pressione enter para continuar");
                          saida = Teclado.lerString();
                         break;
-                    case 7://deletar
-                        System.out.println("Digite o codigo para busca :");
+*/
+                   case 7://deletar
+                       System.out.println("Digite o codigo para busca :");
                         codigo = Teclado.lerInt();
-                        if(ProdutoCL.deleteProduto(codigo)){
+                       if(ProdutoCL.deleteProduto(codigo)){
                             System.out.println("Produto deletado com sucesso");
                             
                         }else{
                             System.out.println("erro ao deletar produto");
-                        }
+                       }
                         
-                         System.out.println("Pressione enter para continuar");
-                         saida = Teclado.lerString();
-                        break;
+                        System.out.println("Pressione enter para continuar");
+                       saida = Teclado.lerString();
+                       break;
                         
                     
         
