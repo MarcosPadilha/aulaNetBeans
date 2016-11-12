@@ -85,6 +85,22 @@ public class ClienteBD {
        return null; 
     }
     /**
+     * busca cliente por nome
+     * @param nome
+     * @return ClienteBO
+     */
+     public static ClienteBO findClienteNome(String nome){
+    for(ClienteBO c : base){
+        if(c.getNome().equals(nome)){
+            
+            return c;
+        }
+    }
+       return null; 
+    }
+    
+    
+    /**
      * método que encontra a posição de um determinado cliente no array.
      * @param  codigo - int
      * @return int

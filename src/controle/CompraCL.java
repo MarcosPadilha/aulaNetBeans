@@ -8,6 +8,7 @@ package controle;
 import java.util.ArrayList;
 import negocio.CompraBO;
 import negocio.CompraProdutoBO;
+import negocio.ProdutoBO;
 import persistencia.CompraBD;
 import persistencia.CompraProdutoBD;
 import visao.CompraIO;
@@ -42,19 +43,19 @@ public class CompraCL {
     
    }
     
-     public static void findCOmpraCodigo( int codigo){
+     public static CompraBO findCompraCodigo( int codigo){
         CompraBO v = CompraBD.findCompraCodigo(codigo);
         if(v!=null){
-         CompraIO.printCompra(v);  
-        }else{//depois troca por exceção
-            System.out.println("nao encontrado ");  
+         return v;
+        }else{
+           return null;
         }
     
    
     
     }
-      public static void showCompras(){
-          CompraIO.printList(CompraBD.getAll());
+      public static ArrayList<CompraBO> showCompras(){
+          return CompraBD.getAll();
     
     }
       public static void findProdutosComprados(int codigo){
@@ -63,7 +64,53 @@ public class CompraCL {
           
           
       }
+      public static  ArrayList <CompraProdutoBO> getItens(int codigoVenda) {
+     return   CompraProdutoBD.findProdutosComprados(codigoVenda);
+        
+    }
       
+      public static void newCompra(CompraBO c){
+        CompraBO compra = c;
+        if(CompraBD.save(compra)){
+
+        }
+     
+    }
+      
+      public static boolean delete(int codigo){
+    return CompraBD.delete(codigo);
+    }
+      
+      public static boolean newItemCompra(CompraProdutoBO item){
+         return CompraProdutoBD.save(item);
+      
+     }
+      
+      public static boolean updateCompra(CompraBO c){
+    
+    return CompraBD.update(c);
+    }
+      
+      public static boolean removeItem(int codigo){
+       CompraProdutoBD.delete(codigo);
+       
+       return true;
+   }
+      
+      public static void atualizarEstoque(int codigoCompra){
+        CompraBO v =   CompraCL.findCompraCodigo(codigoCompra);
+            
+       for(CompraProdutoBO cc : CompraCL.getItens(codigoCompra)){
+           int qtd;
+           qtd = cc.getQuantidade();
+           ProdutoBO prod = ProdutoCL.findProdutoCodigo(cc.getProduto().getCodigo()) ;
+           int novoEstoque = (int) (prod.getEstoque() + qtd);
+           prod.setEstoque(novoEstoque);
+           ProdutoCL.updateProduto(prod);
+       }
+   
+   
+   }
       
       
            

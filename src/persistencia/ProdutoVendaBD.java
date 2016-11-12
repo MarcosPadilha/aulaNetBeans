@@ -35,6 +35,7 @@ public class ProdutoVendaBD {
                
         }
       }
+       
        if(resposta.isEmpty()){
            return null;
            
@@ -45,9 +46,41 @@ public class ProdutoVendaBD {
     }
     
     
+     public static boolean delete(int codigo){
+    int linha = posProdutoVendaCodigo(codigo);
+        if(linha!= -1){
+            base.remove(linha);
+           return true; 
+        }else{
+            return false;
+        }
     
     
-    
+     }
+     
+      public static ProdutoVendaBO findProdutoVendaCodigo(int codigo){
+    for(ProdutoVendaBO p : base){
+        if(p.getCodigoVenda() == codigo){
+            
+            return p;
+        }
+    }
+       return null; 
+    }
+      
+      
+      public static int posProdutoVendaCodigo(int codigo){
+        int linha = 0;
+        for(ProdutoVendaBO v : base){
+            if(v.getCodigoVenda() == codigo){
+            return linha;
+            }
+            linha++;
+        }
+        return -1;
+        
+    }
+        
     
         
 }

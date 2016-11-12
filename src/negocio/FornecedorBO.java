@@ -93,6 +93,12 @@ public class FornecedorBO {
     public void setContato(String contato) {
         this.contato = contato;
     }
+    
+    @Override
+    public String toString(){
+    
+     return getNomeFantasia();
+    }
    
    
     

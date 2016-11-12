@@ -88,4 +88,15 @@ public class FornecedorBD {
         }
         
        }
+       
+       
+       public static FornecedorBO findFornecedorNome(String nome){
+    for(FornecedorBO c : baseFornecedores){
+        if(c.getNomeFantasia().equals(nome)){
+            
+            return c;
+        }
+    }
+       return null; 
+    }
 }

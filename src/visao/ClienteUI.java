@@ -86,6 +86,7 @@ public class ClienteUI extends javax.swing.JInternalFrame {
       modelo.addColumn("renda");
       tblCliente.setModel(modelo);
     }
+   
    /**
     * Cria tabela com os dados do cliente conforme objeto recebido por parâmetro.
     * @param  cliente ClienteBO
@@ -109,6 +110,7 @@ public class ClienteUI extends javax.swing.JInternalFrame {
     /**
      * Cria tabela com dados de todos clientes já criados.
      */
+    
     public void retrieveClientes(){
     DefaultTableModel modelo = new DefaultTableModel();
       modelo.addColumn("Código");

@@ -15,11 +15,22 @@ public class CompraBO {
     private int codigoCompra;
     private String dataCompra;
     private int codFornecedor;
+    private double ValorTotal;
 
     public CompraBO(int codigoCompra, String dataCompra, int codFornecedor) {
         this.codigoCompra = codigoCompra;
         this.dataCompra = dataCompra;
         this.codFornecedor = codFornecedor;
+        
+        
+    }
+
+    public double getValorTotal() {
+        return ValorTotal;
+    }
+
+    public void setValorTotal(double ValorTotal) {
+        this.ValorTotal = ValorTotal;
     }
 
     public int getCodigoCompra() {

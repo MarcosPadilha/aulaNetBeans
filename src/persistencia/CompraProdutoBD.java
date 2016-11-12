@@ -46,6 +46,30 @@ public class CompraProdutoBD {
        }
     
     }
+    
+    public static boolean delete(int codigo){
+    int linha = posProdutoCompraCodigo(codigo);
+        if(linha!= -1){
+            base.remove(linha);
+           return true; 
+        }else{
+            return false;
+        }
+    
+    
+     }
+    
+     public static int posProdutoCompraCodigo(int codigo){
+        int linha = 0;
+        for(CompraProdutoBO c : base){
+            if(c.getCodigoCompra() == codigo){
+            return linha;
+            }
+            linha++;
+        }
+        return -1;
+        
+    }
      
      
     

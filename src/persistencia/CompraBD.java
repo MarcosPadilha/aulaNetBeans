@@ -38,7 +38,7 @@ public class CompraBD {
        return null; 
     }
             public static boolean delete(int codigo){
-            int linha = posCompraVenda(codigo);
+            int linha = posCompraCodigo(codigo);
                 if(linha!= -1){
                     base.remove(linha);
                    return true; 
@@ -47,7 +47,7 @@ public class CompraBD {
                 }
        
     }
-        public static int posCompraVenda(int codigo){
+        public static int posCompraCodigo(int codigo){
         int linha = 0;
         for(CompraBO c : base){
             if(c.getCodigoCompra()== codigo){
@@ -56,6 +56,17 @@ public class CompraBD {
             linha++;
         }
         return -1;
+        
+    }
+        
+          public static boolean update(CompraBO dado){
+    int linha = posCompraCodigo(dado.getCodigoCompra());
+        if(linha!= -1){
+            base.set(linha, dado);
+            return true;
+        }else{
+            return false;
+        }
         
     }
       

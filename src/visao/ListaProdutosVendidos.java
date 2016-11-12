@@ -5,9 +5,7 @@
  */
 package visao;
 
-import controle.ClienteCL;
-import negocio.ClienteBO;
-import negocio.VendaBO;
+
 
 
 
@@ -172,12 +170,8 @@ public class ListaProdutosVendidos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-     VendaBO v =  VendasUI.retorna();
-      txtVendaCodigo.setText(String.valueOf(v.getCodigoVenda()));
-      ClienteBO c = ClienteCL.findClienteCodigo(v.getCodigoCliente());
-      
-      txtNomeCliente.setText(c.getNome());
-      txtCodigoCliente.setText(String.valueOf(v.getCodigoCliente()));
+     
+     
     }//GEN-LAST:event_formInternalFrameOpened
 
     /**

@@ -115,4 +115,11 @@ public class FornecedorCL {
          
     }
     
+    public static FornecedorBO findFornecedorNome(String nome){
+      
+           return  FornecedorBD.findFornecedorNome(nome);
+       
+       
+       }
+    
 }

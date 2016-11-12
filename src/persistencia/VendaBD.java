@@ -37,6 +37,8 @@ public class VendaBD {
     }
        return null; 
     }
+       
+       
        public static boolean delete(int codigo){
     int linha = posVendaCodigo(codigo);
         if(linha!= -1){
@@ -45,6 +47,8 @@ public class VendaBD {
         }else{
             return false;
         }
+        
+        
        
     }
         public static int posVendaCodigo(int codigo){
@@ -56,6 +60,17 @@ public class VendaBD {
             linha++;
         }
         return -1;
+        
+    }
+        
+         public static boolean update(VendaBO dado){
+    int linha = posVendaCodigo(dado.getCodigoVenda());
+        if(linha!= -1){
+            base.set(linha, dado);
+            return true;
+        }else{
+            return false;
+        }
         
     }
        

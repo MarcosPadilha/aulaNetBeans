@@ -171,6 +171,13 @@ public class ClienteCL {
        
        
        }
+       
+       public static ClienteBO findCLienteNome(String nome){
+      
+           return  ClienteBD.findClienteNome(nome);
+       
+       
+       }
           
           
       }
