@@ -40,7 +40,7 @@ public class CompraMN {
                 case 2:
                     System.out.println("Código da venda para sua busca: ");
                             codigo = Teclado.lerInt();
-                            CompraCL.findCOmpraCodigo(codigo);
+                            //CompraCL.findCOmpraCodigo(codigo);
                             System.out.println("pressione enter para continuar ");
                             saida = Teclado.lerString();
                     

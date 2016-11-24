@@ -5,11 +5,15 @@
  */
 package persistencia;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import negocio.ClienteBO;
+
 
 /**
  *
@@ -18,6 +22,17 @@ import negocio.ClienteBO;
  */
 public class ClienteBD {
  private static ArrayList<ClienteBO> base = new ArrayList(); 
+ private static String caminho = "c:\\banco\\Clientes.tdn";
+
+ public static void load(){
+   
+         if(Arquivo.loadDataBase(caminho)!=null){
+             base = (ArrayList<ClienteBO>)Arquivo.loadDataBase(caminho);           
+         }
+    
+ 
+ }
+ 
  /**
   * método que salva os clientes no array base criado aqui em cima.
   * @param  item - objeto ClienteBO
@@ -25,6 +40,7 @@ public class ClienteBD {
   */
     public static boolean save(ClienteBO item){
         base.add(item);
+        Arquivo.updateDataBase(base, caminho);
         return true;
 
     }

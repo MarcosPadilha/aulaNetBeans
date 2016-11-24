@@ -5,11 +5,13 @@
  */
 package negocio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author faculdade.ads
  */
-public class CPFBO {
+public class CPFBO  implements Serializable{
     private String numero;
 
     public CPFBO(String numero) {

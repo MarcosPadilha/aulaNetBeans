@@ -5,11 +5,13 @@
  */
 package negocio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author faculdade.ads
  */
-public class EnderecoBO {
+public class EnderecoBO implements Serializable {
     private String siglaEstado;
     private String cidade;
     private String cep;

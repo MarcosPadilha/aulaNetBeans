@@ -5,11 +5,13 @@
  */
 package negocio;
 
+import java.io.Serializable;
+
 /**
  *
  * @author faculdade.ads
  */
-public class ClienteBO {
+public class ClienteBO implements Serializable {
    private int codigo;
    private String nome;
    private String telefone;

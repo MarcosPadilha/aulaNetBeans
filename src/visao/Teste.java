@@ -26,7 +26,7 @@ import visao.menu.ProdutoMN;
  */
 public class Teste {
     public static void main(String[] args) {
-
+        ClienteBD.load();
     MenuCadastros frmCliente = new MenuCadastros();
     frmCliente.setVisible(true);
         
