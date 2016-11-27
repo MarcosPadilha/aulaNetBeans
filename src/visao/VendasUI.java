@@ -684,7 +684,7 @@ public class VendasUI extends javax.swing.JInternalFrame {
 
     private void btnAddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddItemActionPerformed
     
-        // calculaTotal();
+         calculaTotal();
          VendaCL.newItemVenda(readProdutoVenda()); 
          VendaBO v =  VendaCL.findVendaCodigo(readProdutoVenda().getCodigoVenda());
          retrieveDetalheVenda(Integer.parseInt(txtCodigoVenda.getText()));
@@ -713,7 +713,8 @@ public class VendasUI extends javax.swing.JInternalFrame {
                    
        int codigo = Integer.parseInt(txtCodigoVenda.getText());
       VendaCL.atualizarEstoque(codigo);
-         JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso");
+      
+        JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso");
         LimpaTela();
         criaTabelaVazia();
             
@@ -771,9 +772,11 @@ public class VendasUI extends javax.swing.JInternalFrame {
         retrieveDetalheVenda(Integer.parseInt(txtCodigoVenda.getText()));
       VendaBO v =  VendaCL.findVendaCodigo(Integer.parseInt(txtCodigoVenda.getText()));
         txtValorTotal.setText(String.valueOf(v.getValorTotal()));
+        JOptionPane.showMessageDialog(null, v.getValorTotal());
         txtDataVenda.setText(v.getDataVenda());
         ClienteBO nome = ClienteCL.findClienteCodigo(v.getCodigoCliente());
         txtCLientePara.setText(nome.getNome());
+        
     }//GEN-LAST:event_btnBuscaVendasActionPerformed
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
