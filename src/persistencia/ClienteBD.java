@@ -24,13 +24,12 @@ public class ClienteBD {
  private static ArrayList<ClienteBO> base = new ArrayList(); 
  private static String caminho = "c:\\banco\\Clientes.tdn";
 
- public static void load(){
+   public static void load(){
    
          if(Arquivo.loadDataBase(caminho)!=null){
              base = (ArrayList<ClienteBO>)Arquivo.loadDataBase(caminho);           
          }
-    
- 
+   
  }
  
  /**
@@ -52,13 +51,16 @@ public class ClienteBD {
     * @return boolean
     */
     public static boolean delete(int codigo){
+    load();
     int linha = posClienteCodigo(codigo);
         if(linha!= -1){
             base.remove(linha);
+             Arquivo.updateDataBase(base, caminho);
            return true; 
         }else{
             return false;
         }
+        
        
     }
   /**
@@ -68,9 +70,11 @@ public class ClienteBD {
    */  
     
     public static boolean update(ClienteBO dado){
+    load();
     int linha = posClienteCodigo(dado.getCodigo());
         if(linha!= -1){
             base.set(linha, dado);
+             Arquivo.updateDataBase(base, caminho);
             return true;
         }else{
             return false;
@@ -83,7 +87,7 @@ public class ClienteBD {
   * @return base com todos clientes.
   */
     public static ArrayList<ClienteBO> getAll(){
-
+        load();
         return base;
     }       
     /**
@@ -92,6 +96,7 @@ public class ClienteBD {
      * @return objeto tipo ClienteBO com o cliente buscado ou um nulo.
      */
     public static ClienteBO findClienteCodigo(int codigo){
+    load();
     for(ClienteBO c : base){
         if(c.getCodigo() == codigo){
             
@@ -106,6 +111,7 @@ public class ClienteBD {
      * @return ClienteBO
      */
      public static ClienteBO findClienteNome(String nome){
+    load();
     for(ClienteBO c : base){
         if(c.getNome().equals(nome)){
             
@@ -122,6 +128,7 @@ public class ClienteBD {
      * @return int
      */
     public static int posClienteCodigo(int codigo){
+       load();
         int linha = 0;
         for(ClienteBO c : base){
             if(c.getCodigo()== codigo){
@@ -140,6 +147,7 @@ public class ClienteBD {
  * @return Arraylist
  */    
    public static ArrayList <ClienteBO> findClienteRenda(double renda, int opcao){
+       load();
        ArrayList <ClienteBO> resposta = new ArrayList();
        switch(opcao){
            case 1:
@@ -174,6 +182,7 @@ public class ClienteBD {
    * @return arrrayList
    */
    public static ArrayList<ClienteBO> findRendaMaior5000(){
+       load();
      ArrayList <ClienteBO> resposta = new ArrayList();
       for(ClienteBO c : base){
           if(c.getRenda() >5000){
@@ -191,6 +200,7 @@ public class ClienteBD {
     */
    
     public static ArrayList<ClienteBO> findRendaMaior(){
+        load();
      ArrayList <ClienteBO> resposta = new ArrayList();
     
        double maior = 0;
@@ -221,7 +231,7 @@ public class ClienteBD {
       * @return double.
       */
   public static double mediaRenda(){
-       
+       load();
       int total = 0;
       double media;
       double valor = 0;

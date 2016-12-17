@@ -15,17 +15,31 @@ import negocio.ProdutoBO;
  */
 public class ProdutoBD {
     private static ArrayList <ProdutoBO> base = new ArrayList();
+     private static String caminho = "c:\\banco\\Produtos.tdn";
+
+   public static void load(){
+   
+         if(Arquivo.loadDataBase(caminho)!=null){
+             base = (ArrayList<ProdutoBO>)Arquivo.loadDataBase(caminho);           
+         }
+    
+ 
+ }
+ 
     
     public static boolean save(ProdutoBO item){
     base.add(item);
+  
     return true;
     }
     
     public static ArrayList<ProdutoBO> getAll(){
+      
         return base;
     }
     
       public static int posProdutoCodigo(int codigo){
+          
         int linha = 0;
         for(ProdutoBO p : base){
             if(p.getCodigo()== codigo){
@@ -39,9 +53,11 @@ public class ProdutoBD {
      
       
       public static boolean delete(int codigo){
+         
     int linha = posProdutoCodigo(codigo);
         if(linha!= -1){
             base.remove(linha);
+           
            return true; 
         }else{
             return false;
@@ -49,15 +65,18 @@ public class ProdutoBD {
        
     }
       public static boolean update(ProdutoBO dado){
+     
       int linha = posProdutoCodigo(dado.getCodigo());
         if(linha !=-1){
         base.set(linha, dado);
+     
         return true;
         }else{
         return false;
         }
       }
       public static ProdutoBO findProdutoCodigo(int codigo){
+        
       for(ProdutoBO p : base){
           if(p.getCodigo()== codigo){
            return p ;
@@ -68,6 +87,7 @@ public class ProdutoBD {
     }
       
        public static ArrayList <ProdutoBO> findProdutoValorCompra(double valorCompra, int opcao){
+           
        ArrayList <ProdutoBO> resposta = new ArrayList();
        switch(opcao){
            case 1:
@@ -97,6 +117,7 @@ public class ProdutoBD {
       
     }
        public static ArrayList <ProdutoBO> findProdutoEstoqueBaixo(){
+        
        ArrayList <ProdutoBO> lista = new ArrayList();
        for(ProdutoBO p : base){
            if(p.getEstoque()<= p.getEstoqueSegurança()){

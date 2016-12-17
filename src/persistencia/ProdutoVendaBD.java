@@ -15,19 +15,32 @@ import negocio.VendaBO;
  */
 public class ProdutoVendaBD {
         public static ArrayList<ProdutoVendaBO> base = new ArrayList();
+         private static String caminho = "c:\\banco\\ProdutoVenda.tdn";
+
+   public static void load(){
+   
+         if(Arquivo.loadDataBase(caminho)!=null){
+             base = (ArrayList<ProdutoVendaBO>)Arquivo.loadDataBase(caminho);           
+         }
     
-    public static boolean save(ProdutoVendaBO venda){
-        base.add(venda);
-        return true;
+ 
+ }
+    
+    public static boolean save(ProdutoVendaBO venda){       
+         base.add(venda);
+       
+          return true;
                
     }
     
     public static ArrayList<ProdutoVendaBO> getAll(){
+      
         return base;
         
     }
     
     public static ArrayList<ProdutoVendaBO> findProdutoVendidos(int codigoVenda){
+     
        ArrayList<ProdutoVendaBO> resposta = new ArrayList();
        for(ProdutoVendaBO pv: base){
         if(pv.getCodigoVenda()==codigoVenda){
@@ -47,9 +60,11 @@ public class ProdutoVendaBD {
     
     
      public static boolean delete(int codigo){
+      
     int linha = posProdutoVendaCodigo(codigo);
         if(linha!= -1){
             base.remove(linha);
+             
            return true; 
         }else{
             return false;
@@ -59,6 +74,7 @@ public class ProdutoVendaBD {
      }
      
       public static ProdutoVendaBO findProdutoVendaCodigo(int codigo){
+     
     for(ProdutoVendaBO p : base){
         if(p.getCodigoVenda() == codigo){
             
@@ -70,6 +86,7 @@ public class ProdutoVendaBD {
       
       
       public static int posProdutoVendaCodigo(int codigo){
+      
         int linha = 0;
         for(ProdutoVendaBO v : base){
             if(v.getCodigoVenda() == codigo){

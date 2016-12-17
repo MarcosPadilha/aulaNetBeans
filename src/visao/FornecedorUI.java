@@ -83,7 +83,7 @@ public class FornecedorUI extends javax.swing.JInternalFrame {
       modelo.addColumn("email");
       modelo.addColumn("Razao social");
 
-         for(FornecedorBO c: FornecedorCL.showFornecedores()){
+        for(FornecedorBO c: FornecedorCL.showFornecedores()){
         modelo.addRow(new Object[] {
         c.getCodigo(), c.getNomeFantasia(), c.getTelefone(), c.geteMail(), c.getRazaoSocial()
         });

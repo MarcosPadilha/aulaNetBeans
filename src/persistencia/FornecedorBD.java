@@ -6,6 +6,7 @@
 package persistencia;
 
 import java.util.ArrayList;
+import negocio.ClienteBO;
 import negocio.FornecedorBO;
 
 /**
@@ -15,6 +16,17 @@ import negocio.FornecedorBO;
 public class FornecedorBD {
     
     public static ArrayList <FornecedorBO> baseFornecedores = new ArrayList();
+    private static String caminho = "c:\\banco\\Fornecedores.tdn";
+
+   public static void load(){
+   
+         if(Arquivo.loadDataBase(caminho)!=null){
+             baseFornecedores = (ArrayList<FornecedorBO>)Arquivo.loadDataBase(caminho);           
+         }
+    
+ 
+ }
+    
     /**
      * método que salva, adiciona no array base os fornecedores.
      * @param   item FornecedorBO
@@ -23,8 +35,8 @@ public class FornecedorBD {
      * 
      */
         public static boolean save(FornecedorBO item){
-        baseFornecedores.add(item);
-            
+          baseFornecedores.add(item);
+          Arquivo.updateDataBase(baseFornecedores, caminho);  
             return true;
         }
         
@@ -33,7 +45,7 @@ public class FornecedorBD {
          * @return base de fornecedores
          */
          public static ArrayList<FornecedorBO> getAll(){
-
+          load();
           return baseFornecedores;
         }       
   
@@ -43,6 +55,7 @@ public class FornecedorBD {
   * @return objeto do tipo FornecedorBO ou um nulo.
   */        
          public static FornecedorBO findFornecedorCodigo(int codigo){
+           load();  
             for(FornecedorBO b : baseFornecedores){
                 if(b.getCodigo()== codigo){
                  return b;
@@ -56,6 +69,7 @@ public class FornecedorBD {
    * @return posição do procurado ou posiçao inexistente.
    */       
          public static int posFornecedorCodigo(int codigo){
+             load();
              int linha = 0;
                 for(FornecedorBO b : baseFornecedores){
                     if(b.getCodigo()== codigo){
@@ -67,9 +81,11 @@ public class FornecedorBD {
          }
          
       public static boolean delete(int codigo){
+          load();
       int linha = posFornecedorCodigo(codigo);
         if(linha!=-1){
             baseFornecedores.remove(linha);
+            Arquivo.updateDataBase(baseFornecedores, caminho);  
             return true;
         }else{
             return false;
@@ -78,9 +94,11 @@ public class FornecedorBD {
       }
       
        public static boolean update(FornecedorBO dado){
+           load();
        int linha = posFornecedorCodigo(dado.getCodigo());
         if(linha!=-1){
             baseFornecedores.set(linha, dado);
+            Arquivo.updateDataBase(baseFornecedores, caminho);  
             return true;
         
         }else{
@@ -91,6 +109,7 @@ public class FornecedorBD {
        
        
        public static FornecedorBO findFornecedorNome(String nome){
+           load();
     for(FornecedorBO c : baseFornecedores){
         if(c.getNomeFantasia().equals(nome)){
             

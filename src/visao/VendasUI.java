@@ -225,7 +225,7 @@ public class VendasUI extends javax.swing.JInternalFrame {
    
    LocalDate hoje = LocalDate.now();
      DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    // hoje.format(formatador);
+     hoje.format(formatador);
     String data =  txtDataVenda.getText();
     
     int codigoCliente = Integer.parseInt(txtCodigoCliente.getText());
@@ -622,7 +622,7 @@ public class VendasUI extends javax.swing.JInternalFrame {
                     .addComponent(jSeparator2)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addGap(0, 747, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(115, 115, 115)
@@ -677,7 +677,8 @@ public class VendasUI extends javax.swing.JInternalFrame {
      DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
   
      txtDataVenda.setText(String.valueOf(hoje.format(formatador)));
-     VendaCL.newVenda(readVenda());
+     
+     // VendaCL.newVenda(readVenda());
      txtCLientePara.setText("");
    
     }//GEN-LAST:event_btnAbrirVendaActionPerformed
@@ -709,10 +710,10 @@ public class VendasUI extends javax.swing.JInternalFrame {
 
     private void btnFecharVendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharVendaActionPerformed
        Double valor = Double.parseDouble(txtValorTotal.getText());
-       VendaCL.updateVenda(readVenda(valor));
+       VendaCL.newVenda(readVenda(valor));
                    
        int codigo = Integer.parseInt(txtCodigoVenda.getText());
-      VendaCL.atualizarEstoque(codigo);
+       VendaCL.atualizarEstoque(codigo);
       
         JOptionPane.showMessageDialog(null, "Pedido finalizado com sucesso");
         LimpaTela();
@@ -770,9 +771,9 @@ public class VendasUI extends javax.swing.JInternalFrame {
     private void btnBuscaVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscaVendasActionPerformed
       //  criaTabelaVendas();
         retrieveDetalheVenda(Integer.parseInt(txtCodigoVenda.getText()));
-      VendaBO v =  VendaCL.findVendaCodigo(Integer.parseInt(txtCodigoVenda.getText()));
+        VendaBO v =  VendaCL.findVendaCodigo(Integer.parseInt(txtCodigoVenda.getText()));
         txtValorTotal.setText(String.valueOf(v.getValorTotal()));
-        JOptionPane.showMessageDialog(null, v.getValorTotal());
+       
         txtDataVenda.setText(v.getDataVenda());
         ClienteBO nome = ClienteCL.findClienteCodigo(v.getCodigoCliente());
         txtCLientePara.setText(nome.getNome());

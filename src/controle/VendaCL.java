@@ -24,10 +24,12 @@ public class VendaCL {
     
  
     
-    public static void newVenda(VendaBO v){
+    public static boolean newVenda(VendaBO v){
         VendaBO venda = v;
         if(VendaBD.save(venda)){
-
+                return true;
+        }else{
+        return false;
         }
      
     }

@@ -15,13 +15,24 @@ import negocio.CompraProdutoBO;
 
 public class CompraProdutoBD {
      public static ArrayList<CompraProdutoBO> base = new ArrayList();
-     
+      private static String caminho = "c:\\banco\\CompraProduto.tdn";
+
+   public static void load(){
+   
+         if(Arquivo.loadDataBase(caminho)!=null){
+             base = (ArrayList<CompraProdutoBO>)Arquivo.loadDataBase(caminho);           
+         }
+    
+ 
+ }
       public static boolean save(CompraProdutoBO venda){
         base.add(venda);
+       
         return true;    
     }
     
     public static ArrayList<CompraProdutoBO> getAll(){
+      
         return base;
         
     }
@@ -31,6 +42,7 @@ public class CompraProdutoBD {
      * @return arrayList
      */
     public static ArrayList<CompraProdutoBO> findProdutosComprados(int codigoCompra){
+      
        ArrayList<CompraProdutoBO> resposta = new ArrayList();
        for(CompraProdutoBO pc: base){
         if(pc.getCodigoCompra()==codigoCompra){
@@ -48,9 +60,11 @@ public class CompraProdutoBD {
     }
     
     public static boolean delete(int codigo){
+      
     int linha = posProdutoCompraCodigo(codigo);
         if(linha!= -1){
             base.remove(linha);
+            
            return true; 
         }else{
             return false;
@@ -60,6 +74,7 @@ public class CompraProdutoBD {
      }
     
      public static int posProdutoCompraCodigo(int codigo){
+        
         int linha = 0;
         for(CompraProdutoBO c : base){
             if(c.getCodigoCompra() == codigo){

@@ -654,7 +654,7 @@ public class ClienteUI extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-       retrieveClientes();
+      CriaTabelaVazia();
        
     }//GEN-LAST:event_formInternalFrameOpened
 
